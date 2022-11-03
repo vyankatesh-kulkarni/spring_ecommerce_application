@@ -18,6 +18,7 @@
 					<div class="card-header">
 						<h3>Login here !</h3>
 					</div>
+					<%@include file="message.jsp" %>
 					<div class="card-body">
 						<form action="LoginServlet" method="post">
 						  <div class="mb-3">

@@ -1,3 +1,8 @@
+  <%@ page import="com.vksolutions.ecommerce.entity.User" %>
+<% 
+		User user1 = (User)session.getAttribute("currentUser"); 
+%>
+
 <nav class="navbar navbar-expand-lg navbar-light custom-bg white-text">
   <div class="container">
     <a class="navbar-brand" href="index.jsp">Ecommerce Shop</a>
@@ -23,12 +28,38 @@
       </ul>
       
       <ul class="navbar-nav ml-auto">
-      	<li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="login.jsp">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="register.jsp">Register</a>
-        </li>
+      	
+      	<% 
+      		if(user1 == null){
+      			
+      		%>
+		      	<li class="nav-item">
+		          <a class="nav-link active" aria-current="page" href="login.jsp">Login</a>
+		        </li>	
+      				
+      			 <li class="nav-item">
+		          <a class="nav-link active" aria-current="page" href="register.jsp">Register</a>
+		        </li>
+		   <% 
+      			}
+      		
+      		else {
+      		
+      		%>
+      			<li class="nav-item">
+		          <a class="nav-link active" aria-current="page" href="#">Hi  <%= user1.getUserName() %></a>
+		        </li>
+      			<li class="nav-item">
+		          <a class="nav-link active" aria-current="page" href="LogoutServlet">Logout</a>
+		        </li>	
+      		
+      		<% 
+      		
+      		}
+      	%>
+      
+      
+       
       
       </ul>
     </div>
