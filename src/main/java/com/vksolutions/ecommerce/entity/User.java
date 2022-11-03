@@ -12,23 +12,37 @@ import javax.persistence.Table;
 public class User {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="user_id")
 	private int userId;
 	
+	@Column(name="user_name")
 	private String userName;
+	
+	@Column(name="user_email")
 	private String userEmail;
+	
+	@Column(name="user_password")
 	private String userPassword;
+	
+	@Column(name="user_phone")
 	private String userPhone;
+	
+	@Column(name="user_pic")
 	private String userPic;
 	
-	@Column(length=1500)
+	@Column(length=1500, name="user_address")
 	private String userAddress;
+	
+	@Column(name="user_type")
+	private String userType;
+
 	
 	public User() {
 		
 	}
 
 	public User(String userName, String userEmail, String userPassword, String userPhone, String userPic,
-			String userAddress) {
+			String userAddress, String userType) {
 		super();
 		this.userName = userName;
 		this.userEmail = userEmail;
@@ -36,7 +50,10 @@ public class User {
 		this.userPhone = userPhone;
 		this.userPic = userPic;
 		this.userAddress = userAddress;
+		this.userType = userType;
 	}
+
+
 
 	public int getUserId() {
 		return userId;
@@ -93,13 +110,25 @@ public class User {
 	public void setUserAddress(String userAddress) {
 		this.userAddress = userAddress;
 	}
+	
+	
+
+	public String getUserType() {
+		return userType;
+	}
+
+	public void setUserType(String userType) {
+		this.userType = userType;
+	}
 
 	@Override
 	public String toString() {
 		return "User [userId=" + userId + ", userName=" + userName + ", userEmail=" + userEmail + ", userPassword="
 				+ userPassword + ", userPhone=" + userPhone + ", userPic=" + userPic + ", userAddress=" + userAddress
-				+ "]";
+				+ ", userType=" + userType + "]";
 	}
+
+	
 	
 	
 

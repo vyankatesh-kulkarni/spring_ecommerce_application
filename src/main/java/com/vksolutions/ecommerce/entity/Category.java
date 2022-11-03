@@ -3,6 +3,7 @@ package com.vksolutions.ecommerce.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,8 +21,13 @@ import lombok.NoArgsConstructor;
 public class Category {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="category_id")
 	private int categoryId;
+	
+	@Column(name="category_name")
 	private String categoryName;
+	
+	@Column(name="category_description")
 	private String categoryDescription;
 	
 	@OneToMany(mappedBy="category")

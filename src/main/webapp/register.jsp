@@ -11,34 +11,34 @@
 <body>
 <%@include file="components/navbar.jsp" %>
 	<div class="container-fluid">
-				
+		<%@include file = "message.jsp" %>
 		<div class="row mt-5">
 			<div class="col-md-4 offset-md-4">
-				<form>
+				<form action="RegisterServlet" method="post">
 				  <div class="mb-3">
 				    <label for="username" class="form-label">Name</label>
-				    <input type="text" class="form-control" id="username" aria-describedby="emailHelp">
+				    <input type="text" name="username" class="form-control" id="username" aria-describedby="emailHelp">
 				  </div>
 				  
 				   <div class="mb-3">
 				    <label for="useremail" class="form-label">Email</label>
-				    <input type="email" class="form-control" id="useremail" aria-describedby="emailHelp">
+				    <input type="email"  name="useremail" class="form-control" id="useremail" aria-describedby="emailHelp">
 				     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
 				  </div>
 				  
 				  <div class="mb-3">
 				    <label for="userPassword" class="form-label">Password</label>
-				    <input type="password" class="form-control" id="userPassword" />
+				    <input type="password" name="userpassword" class="form-control" id="userPassword" />
 				  </div>
 				  
 				   <div class="mb-3">
 				    <label for="userPhone" class="form-label">Mobile</label>
-				    <input type="text" class="form-control" id="userPhone" />
+				    <input type="text" name="userphone" class="form-control" id="userPhone" />
 				  </div>
 				  
 				  <div class="mb-3">
 				    <label for="userAddress" class="form-label">Address</label>
-				    <input type="text" class="form-control" id="userAddress" />
+				    <input type="text" name="useraddress" class="form-control" id="userAddress" />
 				  </div>
 				 
 				  <div class="mb-3 form-check">
