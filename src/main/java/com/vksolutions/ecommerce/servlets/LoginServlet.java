@@ -44,7 +44,12 @@ public class LoginServlet extends HttpServlet {
 			else {
 				//create session for user
 				httpSession.setAttribute("currentUser", user);
-				response.sendRedirect("user-home.jsp");
+				String userType = user.getUserType();
+				if(userType.equals("user"))
+					response.sendRedirect("user-home.jsp");
+				else if(userType.equals("admin")){
+					response.sendRedirect("admin.jsp");
+				}
 			}
 		}
 		catch (Exception e) {
