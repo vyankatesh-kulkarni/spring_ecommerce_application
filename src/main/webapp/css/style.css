@@ -2,15 +2,14 @@
 	background:#b0bec5!important;
 }
 
-.admin .card {
-	border: 10px solid red;
-	background:#b0bec5!important;
-	
+.admin .card{
+	border: 1px solid #b0bec5 ;
 }
 
-.admin:hover{
+.admin .card:hover{
 	background:#e2e2e2;
 	cursor:pointer;
+	transform:scale(1.05);
 }
 
 

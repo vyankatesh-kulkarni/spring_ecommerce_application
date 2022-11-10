@@ -14,7 +14,6 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class Product {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -38,4 +37,17 @@ public class Product {
 	
 	@ManyToOne
 	private Category category;
+
+	public Product(String productName, String productDescription, String productPhoto, int productPrice,
+			int productQuantity, Category category) {
+		super();
+		this.productName = productName;
+		this.productDescription = productDescription;
+		this.productPhoto = productPhoto;
+		this.productPrice = productPrice;
+		this.productQuantity = productQuantity;
+		this.category = category;
+	}
+	
+	
 }

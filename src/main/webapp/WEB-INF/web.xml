@@ -23,6 +23,24 @@
   	<description></description>
   	<servlet-class>com.vksolutions.ecommerce.servlets.LogoutServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ProductCategoryServlet</servlet-name>
+  	<display-name>ProductCategoryServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.vksolutions.ecommerce.servlets.ProductCategoryServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>CategoryServlet</servlet-name>
+  	<display-name>CategoryServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.vksolutions.ecommerce.servlets.CategoryServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ProductServlet</servlet-name>
+  	<display-name>ProductServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.vksolutions.ecommerce.servlets.ProductServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>RegisterServlet</servlet-name>
   	<url-pattern>/RegisterServlet</url-pattern>
@@ -34,5 +52,17 @@
   <servlet-mapping>
   	<servlet-name>LogoutServlet</servlet-name>
   	<url-pattern>/LogoutServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ProductCategoryServlet</servlet-name>
+  	<url-pattern>/ProductCategoryServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>CategoryServlet</servlet-name>
+  	<url-pattern>/CategoryServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ProductServlet</servlet-name>
+  	<url-pattern>/ProductServlet</url-pattern>
   </servlet-mapping>
 </web-app>

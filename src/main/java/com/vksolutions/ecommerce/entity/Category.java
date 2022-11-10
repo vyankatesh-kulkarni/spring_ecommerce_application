@@ -32,4 +32,13 @@ public class Category {
 	
 	@OneToMany(mappedBy="category")
 	private List<Product> productList = new ArrayList();
+
+	public Category(String categoryName, String categoryDescription, List<Product> productList) {
+		super();
+		this.categoryName = categoryName;
+		this.categoryDescription = categoryDescription;
+		this.productList = productList;
+	}
+	
+	
 }
