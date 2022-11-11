@@ -45,7 +45,9 @@ public class CategoryDao {
 		Category category = null;
 		try {
 			Session session = sessionFactory.openSession();
+			System.out.println("Category id " + categoryId);
 			category = session.get(Category.class, categoryId);
+			session.close();
 		}
 		catch (Exception e) {
 			// TODO: handle exception

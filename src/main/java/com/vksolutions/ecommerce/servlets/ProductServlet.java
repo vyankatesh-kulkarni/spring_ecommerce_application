@@ -3,6 +3,7 @@ package com.vksolutions.ecommerce.servlets;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,6 +19,7 @@ import com.vksolutions.ecommerce.helper.FactoryProvider;
 /**
  * Servlet implementation class ProductServlet
  */
+@MultipartConfig
 public class ProductServlet extends HttpServlet {
     public ProductServlet() {
         super();
@@ -29,14 +31,13 @@ public class ProductServlet extends HttpServlet {
 		try {
 			
 			
-			
 			String productName = request.getParameter("productName");
+
 			String productDescription = request.getParameter("productDescription");
-			int productPrice = Integer.parseInt(request.getParameter("productPrice"));
+			int productPrice =Integer.parseInt(request.getParameter("productPrice").trim());	//productPrice
 			int productQuantity = Integer.parseInt(request.getParameter("productQuantity"));
-			int categoryId = Integer.parseInt(request.getParameter("categoryId"));
 			Part productPhoto = (Part) request.getPart("productPhoto");
-			
+			int categoryId = Integer.parseInt(request.getParameter("categoryId"));
 			CategoryDao catDao = new CategoryDao(FactoryProvider.getFactory());
 			
 			Category category = catDao.getCategoryById(categoryId);

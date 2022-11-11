@@ -24,8 +24,8 @@
 <%@include file="components/common_css_js.jsp" %>
 </head>
 <body>
-	<%@include file="message.jsp" %>
 	<div class="container admin">
+	<%@include file="message.jsp" %>
 		<div class = "row mt-4">
 			<!-- coloumns -->
 			<div class="col-md-4">
@@ -138,7 +138,7 @@
 	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 	      </div>
 	      <div class="modal-body">
-	        <form action="ProductServlet" method="post">
+	        <form action="ProductServlet" method="post" enctype="multipart/form-data">
 	        	<div class="form-group">
 	        		<input class="form-control" name="productName" placeholder="Enter product name" required />
 	        	</div>
@@ -148,11 +148,11 @@
 	        	</div>
 	        		        	
 	        	<div class="form-group mt-2">
-        			<input  class="form-control" name="productPrice" placeholder="Enter category price" required/>
+        			<input  class="form-control" name="productPrice" placeholder="Enter product price" required/>
         		</div>
         	
         	<div class="form-group mt-2">
-        		<input class="form-control" name="productQuantity" placeholder="Enter category quantity" required>
+        		<input class="form-control" name="productQuantity" placeholder="Enter product quantity" required>
         	</div>
         	
         	
@@ -175,7 +175,7 @@
 	        </div>
         	
         	<div class="form-group mt-2">
-	        		<input type = "file" class="form-control" name="productPhoto" placeholder="Enter category photo" required />
+	        		<input type = "file" class="form-control" name="productPhoto" placeholder="Enter product photo" required />
 	        </div>
 	        	
 	        	<div class="mt-4">
