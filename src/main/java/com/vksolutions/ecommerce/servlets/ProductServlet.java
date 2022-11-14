@@ -1,6 +1,9 @@
 package com.vksolutions.ecommerce.servlets;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -36,7 +39,7 @@ public class ProductServlet extends HttpServlet {
 			String productDescription = request.getParameter("productDescription");
 			int productPrice =Integer.parseInt(request.getParameter("productPrice").trim());	//productPrice
 			int productQuantity = Integer.parseInt(request.getParameter("productQuantity"));
-			Part productPhoto = (Part) request.getPart("productPhoto");
+			Part part = (Part) request.getPart("productPhoto");
 			int categoryId = Integer.parseInt(request.getParameter("categoryId"));
 			CategoryDao catDao = new CategoryDao(FactoryProvider.getFactory());
 			
@@ -48,9 +51,34 @@ public class ProductServlet extends HttpServlet {
 			product.setProductPrice(productPrice);
 			product.setProductQuantity(productQuantity);
 			product.setCategory(category);
-			product.setProductPhoto(productPhoto.getSubmittedFileName());
+			product.setProductPhoto(part.getSubmittedFileName());
+			
+			String path = request.getRealPath("img")+File.separator+"products" + File.separator  + part.getSubmittedFileName();
+			
+			System.out.println("path => " + path);
 			 
 			ProductDao pDao = new ProductDao(FactoryProvider.getFactory());
+			
+			
+			//uploading file on server
+			// output stream is used to save file
+			FileOutputStream fos = new FileOutputStream(path);
+			
+			// get input stream from part
+			InputStream is = part.getInputStream();
+			
+			// reading data
+			byte[] data = new byte[is.available()];
+			
+			// read data
+			is.read(data);
+			
+			// wrting the data
+			fos.write(data);
+			
+			fos.close();
+			is.close();
+			
 			boolean result = pDao.saveProuct(product);
 			
 			HttpSession httpSession = request.getSession();
