@@ -13,7 +13,7 @@
 <body>
 <%@include file="components/navbar.jsp" %>
 
-<div class="">
+<div class="container-fluid">
 	
 	<div class="row mt-3 mx-2">
 		
@@ -25,15 +25,15 @@
 		<!--shwoing categoies -->
 		<div class="col-md-2">
 			<div class="list-group"> 
-				  <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-				    Categories
+				  <a href="index.jsp?category=all" class="list-group-item list-group-item-action active" aria-current="true">
+				    All Categories
 				  </a>
 				  
 			<!-- loop over products -->
 			<% 
 				for(Category category:categoryList){		
 			%>
-					<a href="#" class="list-group-item list-group-item-action"><%= category.getCategoryName() %></a>
+					<a href="index.jsp?category=<%=category.getCategoryId() %>" class="list-group-item list-group-item-action"><%= category.getCategoryName() %></a>
 					
 			<%
 				}
@@ -48,10 +48,25 @@
 		
 		
 		<!-- show products -->
-		<%
+		<%	
+		   
+		    		
+			//String categoryId = request.getParameter("category").trim();
+			
+			//out.println(categoryId);
+			
 			ProductDao productDao = new ProductDao(FactoryProvider.getFactory());
-			List<Product> productList = productDao.getAllProducts();
-		
+			List<Product> productList = null;
+			
+			 if(request.getParameterMap().containsKey("category")){
+				 String categoryId = request.getParameter("category").trim();
+				 Integer catId = Integer.parseInt(categoryId);
+				 productList = productDao.getAllProductsById(catId);
+			 }
+			
+			else { 
+				productList = productDao.getAllProducts();
+			}
 		%>
 		<div class="col-md-10">
 			<div class="row">

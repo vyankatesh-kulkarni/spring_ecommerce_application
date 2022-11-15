@@ -40,7 +40,19 @@ private SessionFactory sessionFactory;
 			Query theQuery = session.createQuery("from Product");
 			
 			List<Product> productList = theQuery.list();
-			
+			session.close();
 			return productList;
 	}
+	
+	public List<Product> getAllProductsById(Integer categoryId){
+		
+		Session session = sessionFactory.openSession();
+		
+		Query theQuery = session.createQuery("from Product where category =: theId");
+		theQuery.setParameter("theId", categoryId);
+		
+		List<Product> productList = theQuery.list();
+		
+		return productList;
+}
 }
